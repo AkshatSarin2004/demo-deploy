@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Page Title</title>
+  <meta name="description" content="Short description of this page." />
+  
+  <!-- Open Graph / Twitter (social previews) -->
+  <meta property="og:title" content="Your Page Title" />
+  <meta property="og:description" content="Short description of this page." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com" />
+  <meta property="og:image" content="https://example.com/preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Minimal, modern CSS -->
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --card: #12161f;
+      --text: #e8edf2;
+      --muted: #97a4b3;
+      --brand: #3b82f6;
+      --brand-2: #22d3ee;
+      --ring: 0 0 0 2px color(display-p3 0.23 0.52 0.97 / .35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 20% -10%, #0f172a 0%, var(--bg) 40%),
+                  radial-gradient(800px 600px at 120% 20%, #1e293b 0%, transparent 30%);
+      background-color: var(--bg);
+    }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left: 1rem; top: 1rem; width:auto; height:auto; padding:.5rem .75rem; background:#111827; color:#fff; border-radius:.5rem; }
+
+    /* Header */
+    header { position: sticky; top: 0; backdrop-filter: saturate(160%) blur(8px); background: color-mix(in oklab, var(--bg) 70%, transparent); border-bottom: 1px solid #1f2937; z-index: 10; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: .8rem 0; }
+    .brand { display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.2px; }
+    .logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(140deg, var(--brand), var(--brand-2)); box-shadow: 0 10px 25px -10px #22d3ee; }
+    nav ul { display:flex; gap:1rem; list-style:none; padding:0; margin:0; }
+    nav a { color: var(--muted); text-decoration:none; padding:.4rem .6rem; border-radius:.5rem; }
+    nav a:hover, nav a:focus { color: var(--text); background:#0f172a; outline:none; }
+    .menu-btn { display:none; }
+
+    /* Hero */
+    .hero { padding: 72px 0 36px; text-align: center; }
+    .kicker { color: var(--brand-2); font-weight:600; letter-spacing:.18em; text-transform:uppercase; font-size:.8rem; }
+    h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; margin: .4rem 0 .6rem; }
+    .lede { color: var(--muted); font-size: clamp(1rem, 2.2vw, 1.2rem); }
+    .cta { margin-top: 1.25rem; display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; }
+    .btn { appearance:none; border: 1px solid #334155; background: linear-gradient(180deg, #111827, #0b1220); color: var(--text); padding: .7rem 1rem; border-radius: .9rem; cursor: pointer; font-weight:600; }
+    .btn.primary { border-color: color-mix(in oklab, var(--brand) 60%, #0b1220); background: linear-gradient(180deg, color-mix(in oklab, var(--brand) 30%, #0b1220), #0b1220); box-shadow: 0 6px 18px -8px #3b82f6; }
+    .btn:focus { outline: none; box-shadow: var(--ring); }
+
+    /* Cards */
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; margin: 36px 0 64px; }
+    .card { grid-column: span 4; background: linear-gradient(180deg, #0b1220, var(--card)); border:1px solid #1f2937; border-radius: 1.1rem; padding: 1.1rem; box-shadow: 0 10px 30px -20px #000; }
+    .card h3 { margin: .2rem 0 .4rem; }
+    .card p { color: var(--muted); }
+
+    /* Footer */
+    footer { border-top: 1px solid #1f2937; padding: 28px 0; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .card { grid-column: span 6; }
+    }
+    @media (max-width: 640px) {
+      .card { grid-column: span 12; }
+      nav ul { display:none; }
+      .menu-btn { display:inline-flex; gap:.5rem; align-items:center; padding:.45rem .65rem; border:1px solid #334155; background:#0b1220; color:var(--text); border-radius:.7rem; }
+      .menu-open nav ul { display:flex; position:absolute; right:1rem; top: 60px; flex-direction:column; background:#0b1220; padding:.6rem; border:1px solid #1f2937; border-radius:.7rem; }
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f6f7fb; --card: #ffffff; --text:#0b1220; --muted:#5b6776; }
+      header { background: rgba(255,255,255,.7); border-bottom-color: #e5e7eb; }
+      .btn { background: linear-gradient(180deg, #ffffff, #f4f6f9); border-color:#e5e7eb; }
+      .card { border-color: #e5e7eb; background: linear-gradient(180deg, #ffffff, #f6f7fb); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Homepage">
+        <div class="logo" aria-hidden="true"></div>
+        <span>MySite</span>
+      </div>
+      <button class="menu-btn" aria-expanded="false" aria-controls="menu" id="menuButton">☰ Menu</button>
+      <nav aria-label="Primary">
+        <ul id="menu">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" id="home">
+      <p class="kicker">Starter template</p>
+      <h1>Build something awesome.</h1>
+      <p class="lede">A clean, single‑file HTML starter with modern SEO tags, responsive layout, and accessible components. Copy it, tweak it, ship it.</p>
+      <div class="cta">
+        <a class="btn primary" href="#features">Explore features</a>
+        <a class="btn" href="#about">Learn more</a>
+      </div>
+    </section>
+
+    <section id="features" class="grid" aria-label="Feature list">
+      <article class="card">
+        <h3>Fast & Lightweight</h3>
+        <p>No frameworks required. Minimal CSS and zero dependencies out of the box.</p>
+      </article>
+      <article class="card">
+        <h3>Accessible</h3>
+        <p>Semantic HTML, focus styles, and support for reduced motion and color schemes.</p>
+      </article>
+      <article class="card">
+        <h3>Ready to Brand</h3>
+        <p>Update the color tokens in <code>:root</code> to match your design system.</p>
+      </article>
+    </section>
+
+    <section id="about" class="grid">
+      <article class="card" style="grid-column: span 12;">
+        <h3>About this template</h3>
+        <p>This file includes social preview meta tags, a sticky header with a responsive menu, and a simple grid for content. Remove what you don’t need.</p>
+      </article>
+    </section>
+
+    <section id="contact" class="grid">
+      <form class="card" style="grid-column: span 12;" aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thanks! This is a demo.');">
+        <h3>Contact us</h3>
+        <label>
+          <span>Name</span><br/>
+          <input required name="name" placeholder="Ada Lovelace" style="width:100%; padding:.6rem .7rem; border-radius:.6rem; border:1px solid #334155; background:transparent; color:inherit;" />
+        </label>
+        <br/>
+        <label>
+          <span>Email</span><br/>
+          <input required type="email" name="email" placeholder="ada@example.com" style="width:100%; padding:.6rem .7rem; border-radius:.6rem; border:1px solid #334155; background:transparent; color:inherit;" />
+        </label>
+        <br/>
+        <label>
+          <span>Message</span><br/>
+          <textarea required name="message" rows="4" placeholder="Hello!" style="width:100%; padding:.6rem .7rem; border-radius:.6rem; border:1px solid #334155; background:transparent; color:inherit;"></textarea>
+        </label>
+        <br/>
+        <button class="btn primary" type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Your Name. All rights reserved.</small>
+  </footer>
+
+  <script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mobile menu toggle
+    const btn = document.getElementById('menuButton');
+    const html = document.documentElement;
+    btn?.addEventListener('click', () => {
+      const open = html.classList.toggle('menu-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Helpful console note for developers
+    console.log('%c Built with ♥ — Edit the HTML to make it yours.', 'padding:6px 8px; border-radius:6px;');
+  </script>
+</body>
+</html>
